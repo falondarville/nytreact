@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.card-text {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.search-btn {
+  margin-top: 20px;
+}
