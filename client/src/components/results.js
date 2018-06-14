@@ -9,7 +9,7 @@ export default class Results extends Component {
 				    <h3>Results</h3>
 				  </div>
 				  	<div className="card-body">
-					{/*for each result, render a card with the data gotten from the API: article title, date, and url. Also render a save button*/}
+					{/*for each result (limited to five articles max), render a card with the data gotten from the API: article title, date, and url. Also render a save button*/}
 				  	</div>
 				</div>
 			</div>

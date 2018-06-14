@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <Navbar />
         <Search />
-      {/*these are here for testing*/}
+        {/*these are here for testing*/}
         <Results />
         <Saved />
           <Router>
