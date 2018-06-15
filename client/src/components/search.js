@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Search extends Component {
 
@@ -25,6 +26,7 @@ export default class Search extends Component {
 		const { topic, startYear, endYear } = this.state;
 
 		// pass variables to backend to complete the API request
+		// this is not communicating yet
 		axios.get('/api/articles', {
 			topic, startYear, endYear
 		})
@@ -54,7 +56,7 @@ export default class Search extends Component {
 				    <h4 className="card-text text-center">End Year</h4>
 				    <input className="form-control form-control-lg" onChange={this.handleChange} name="end-year" type="text" placeholder="Enter the end year for your query" />
 
-				    <a className="btn search-btn btn-primary float-right">Search</a>
+				    <a onSubmit={this.handleSubmit} className="btn search-btn btn-primary float-right">Search</a>
 				  </div>
 				</div>
 			</div>
