@@ -1,5 +1,7 @@
 const axios = require('axios');
-require('dotenv').config()
+require('dotenv').config();
+const express = require('express');
+const router = express.Router();
 
 // API routes to get, post, and delete articles
 router.get('/api/articles', function(request, response){
@@ -19,3 +21,15 @@ router.get('/api/articles', function(request, response){
     	console.log(error);
   	});
 })
+
+router.post('/api/articles', function(request, response){
+
+	// save data from the article pulled from the NYT API
+})
+
+router.delete('/api/articles', function(request, response){
+
+	// delete saved article from the database
+})
+
+module.exports = router;
