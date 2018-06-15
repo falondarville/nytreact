@@ -20,6 +20,20 @@ export default class Search extends Component {
 
 	handleSubmit = (event) => {
 		// send data to backend, which will process the NYT API
+		event.preventDefault();
+
+		const { topic, startYear, endYear } = this.state;
+
+		// pass variables to backend to complete the API request
+		axios.get('/api/articles', {
+			topic, startYear, endYear
+		})
+		.then(function(data){
+			console.log(data);
+		})
+		.catch(function(error){
+			console.log(error);
+		})
 		console.log(event);
 	}
 
