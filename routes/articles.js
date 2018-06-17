@@ -5,15 +5,21 @@ const router = express.Router();
 // API routes to get, post, and delete articles
 router.get('/api/articles', function(request, response){
 
+	var topic = request.body.topic;
+	var startYear = request.body.startYear + "0101"
+	var endYear = request.body.endYear + "1231"
+
 	axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json", {
 		params: {
 			"api-key": process.env.NYT_API_KEY,
-			"q": "Obama",
-			"begin_date": 19910101
+			"q": topic,
+			"begin_date": startYear,
+			"end_date": endYear
 		}
 	})
-  		.then(function (response) {
-    	console.log(response);
+  		.then(function (res) {
+		response.json({data: res.data});
+		console.log(res.data)
   	})
   		.catch(function (error) {
     	console.log(error);
