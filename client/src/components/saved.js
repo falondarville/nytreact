@@ -9,7 +9,7 @@ export default class Saved extends Component {
 				    <h3>Saved Articles</h3>
 				  </div>
 				  	<div className="card-body">
-					{/*conditionally render the saved articles, given that there are some*/}
+					{/*conditionally render the saved articles, given that there are some. Get the articles through the API by querying mongoDB. Check connection to database.*/}
 				  	</div>
 				</div>
 			</div>

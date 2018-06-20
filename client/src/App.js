@@ -16,8 +16,8 @@ export default class App extends Component {
         <Results />
         <Saved />
           <Router>
-            {/*hide search results until results come back*/}
-            {/*hide saved articles until there are articles saved to the database*/}
+            {/*hide search results until results come back, use conditional logic for this here*/}
+            {/*hide saved articles until there are articles saved to the database, use conditional logic*/}
           </Router>
       </div>
     );

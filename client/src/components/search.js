@@ -8,7 +8,8 @@ export default class Search extends Component {
 		this.state = {
 			topic: '',
 			startYear: '',
-			endYear: ''
+			endYear: '',
+			articles: []
 		}
 	}
 
@@ -27,12 +28,15 @@ export default class Search extends Component {
 		const { topic, startYear, endYear } = this.state;
 
 		// pass variables to backend to complete the API request
-		// this is not communicating yet
+		// change hard-coded localhost when deploying
 		axios.get('http://localhost:3000/api/articles', {
-			topic, startYear, endYear
+			params: {
+				topic, startYear, endYear
+			}
 		})
 		.then(function(data){
 			console.log(data);
+			this.setState({articles: data.data});
 		})
 		.catch(function(error){
 			console.log(error);
@@ -52,10 +56,10 @@ export default class Search extends Component {
 					    <input className="form-control form-control-lg" onChange={this.handleChange} name="topic" type="text" placeholder="Enter your search topic" />
 
 					    <h4 className="card-text text-center">Start Year</h4>
-					    <input className="form-control form-control-lg" onChange={this.handleChange} name="start-year" type="text" placeholder="Enter the start year for your query" />
+					    <input className="form-control form-control-lg" onChange={this.handleChange} name="startYear" type="text" placeholder="Enter the start year for your query" />
 
 					    <h4 className="card-text text-center">End Year</h4>
-					    <input className="form-control form-control-lg" onChange={this.handleChange} name="end-year" type="text" placeholder="Enter the end year for your query" />
+					    <input className="form-control form-control-lg" onChange={this.handleChange} name="endYear" type="text" placeholder="Enter the end year for your query" />
 
 					    <a onClick={this.handleSubmit} className="btn search-btn btn-primary float-right">Search</a>
 					  </div>
