@@ -6,7 +6,7 @@ export default class Saved extends Component {
 	handleDelete = (event, article) => {
 
 		console.log(event);
-		axios.delete('http://localhost:3000/api/articles/' + event._id, event)
+		axios.delete('/api/articles/' + event._id, event)
 			.then(function(response){
 				console.log('we deleted');
 			})
@@ -24,7 +24,7 @@ export default class Saved extends Component {
 
 
 		setInterval(function(){
-			axios.get('http://localhost:3000/api/articles')
+			axios.get('/api/articles')
 			.then(function(response){
 				self.setState({articles: response.data.articles})
 			})

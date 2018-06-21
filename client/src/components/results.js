@@ -6,7 +6,7 @@ export default class Results extends Component {
 	handleSubmit = (event, article) => {
 
 		console.log(event);
-		axios.post('http://localhost:3000/api/articles', event)
+		axios.post('/api/articles', event)
 			.then(function(response){
 				console.log('we got response');
 			})

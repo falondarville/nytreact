@@ -23,7 +23,6 @@ export default class Search extends Component {
 	}
 
 	handleSubmit = (event) => {
-		// add validation that form has been filled out with text in first input and four numbers in the next two
 
 		// send data to backend, which will process the NYT API
 		console.log("handleSubmit is working")
@@ -32,9 +31,7 @@ export default class Search extends Component {
 		const { topic, startYear, endYear } = this.state;
 		var self = this;
 
-		// pass variables to backend to complete the API request
-		// change hard-coded localhost when deploying
-		axios.get('http://localhost:3000/api/nyt', {
+		axios.get('/api/nyt', {
 			params: {
 				topic, startYear, endYear
 			}
