@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Results from './results.js';
 
 export default class Search extends Component {
 
@@ -21,11 +22,14 @@ export default class Search extends Component {
 	}
 
 	handleSubmit = (event) => {
+		// add validation that form has been filled out with text in first input and four numbers in the next two
+
 		// send data to backend, which will process the NYT API
 		console.log("handleSubmit is working")
 		event.preventDefault();
 
 		const { topic, startYear, endYear } = this.state;
+		var self = this;
 
 		// pass variables to backend to complete the API request
 		// change hard-coded localhost when deploying
@@ -36,7 +40,7 @@ export default class Search extends Component {
 		})
 		.then(function(data){
 			console.log(data);
-			this.setState({articles: data.data});
+			self.setState({articles: data.data.data});
 		})
 		.catch(function(error){
 			console.log(error);
@@ -46,6 +50,7 @@ export default class Search extends Component {
 
 	render() {
 		return(
+			<div>
 			<div className="container">
 				<div className="card">
 				  <div className="card-header text-center">
@@ -64,6 +69,8 @@ export default class Search extends Component {
 					    <a onClick={this.handleSubmit} className="btn search-btn btn-primary float-right">Search</a>
 					  </div>
 				</div>
+			</div>
+				<Results articles={this.state.articles}/>
 			</div>
 			)
 	}
