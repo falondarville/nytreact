@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Results extends Component {
 	render(){
 		return(
-			<div className="container mt-5">
+			<div className={"container mt-5 " + (this.props.articles.length === 0 ? 'hide' : 'show')}>
 				<div className="card">
 				  <div className="card-header text-center">
 				    <h3>Results</h3>
@@ -14,13 +14,12 @@ export default class Results extends Component {
 				  		<p>{article.headline.main}</p>
 				  		<p >{article.web_url}</p>
 				  		<p>{article.pub_date}</p>
+				  		<button>Save</button>
 				  		</div>
 				  	})}
-					{/*for each result (limited to five articles max, API does not provide a way to restrict the results coming back), render a card with the data gotten from the API: article title, date, and url. Also render a save button*/}
 				  	</div>
 				</div>
 			</div>
-
 			)
 	}
 }

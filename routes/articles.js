@@ -18,8 +18,13 @@ router.get('/api/articles', function(request, response){
 		}
 	})
   		.then(function (res) {
-		response.json({data: res.data.response.docs});
-		console.log(res.data)
+  		var articles = [];
+
+  		for(var i = 0; i < 5; i++){
+  			articles.push(res.data.response.docs[i]);
+  		} 
+		response.json({data: articles});
+		console.log(res.data);
   	})
   		.catch(function (error) {
     	console.log(error);
