@@ -34,7 +34,7 @@ export default class Search extends Component {
 
 		// pass variables to backend to complete the API request
 		// change hard-coded localhost when deploying
-		axios.get('http://localhost:3000/api/articles', {
+		axios.get('http://localhost:3000/api/nyt', {
 			params: {
 				topic, startYear, endYear
 			}

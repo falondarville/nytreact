@@ -10,6 +10,15 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var articlesRouter = require('./routes/articles')
 
+const mongoose = require('mongoose');
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+
+mongoose.Promise = Promise;
+
+mongoose.connect(MONGODB_URI, {}, function(err) {
+	console.log(err);
+});
+
 var app = express();
 app.use(cors())
 
