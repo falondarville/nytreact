@@ -7,8 +7,6 @@ require('dotenv').config();
 var nodemon = require('nodemon');
 var cors = require('cors');
 
-var port = process.env.PORT || 3000;
-
 var indexRouter = require('./routes/index');
 var articlesRouter = require('./routes/articles')
 
@@ -52,7 +50,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(port);
 
 module.exports = app;
